@@ -1,0 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Enquire from "./pages/Enquire";
+import Safari from "./pages/Safari";
+
+function App() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/enquire" element={<Enquire />} />
+          <Route path="/safari" element={<Safari />} />
+          <Route path="/southern-africa" element={<Safari />} /> {/* Same as safari for now */}
+          <Route path="/tours" element={<Home />} /> {/* Placeholder */}
+          <Route path="/destinations" element={<Home />} /> {/* Placeholder */}
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
+
+export default App;
