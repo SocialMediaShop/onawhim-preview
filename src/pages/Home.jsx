@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const t = {
   cream:     "#F5F0E8",
@@ -43,47 +43,47 @@ const DESTINATIONS = [
     name: "Cape Town & Western Cape",
     nights: "1–7 nights",
     url: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80&fit=crop&crop=center",
-    path: "/destinations/cape-town"
+    path: "/enquire"
   },
   {
     name: "Garden Route",
     nights: "3–7 nights",
     url: "https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=800&q=80&fit=crop&crop=center",
-    path: "/destinations/garden-route"
+    path: "/enquire"
   },
   {
     name: "Safari & Wildlife",
     nights: "2–10 nights",
     url: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80&fit=crop&crop=top",
-    path: "/safari"
+    path: "/enquire"
   },
   {
     name: "Multi-Day Packages",
     nights: "5–14 nights",
     url: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80&fit=crop&crop=center",
-    path: "/tours"
+    path: "/enquire"
   },
   {
     name: "Day Excursions",
     nights: "Full day",
     url: "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=800&q=80&fit=crop&crop=center",
-    path: "/tours"
+    path: "/enquire"
   },
   {
     name: "Southern Africa",
     nights: "7–21 nights",
     url: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=800&q=80&fit=crop&crop=center",
-    path: "/southern-africa"
+    path: "/enquire"
   },
 ];
 
 const TOURS = [
-  { name: "Cape Peninsula & Boulders Beach", destinations: "Cape Point · Chapman's Peak · Simonstown", nights: "1 Day", price: "From R1,850 pp" },
-  { name: "Garden Route Explorer", destinations: "Knysna · Tsitsikamma · Plettenberg Bay", nights: "5 Nights", price: "From R9,200 pp" },
-  { name: "Big 5 Safari & Cape Town", destinations: "Kruger National Park · Cape Peninsula", nights: "7 Nights", price: "From R18,500 pp" },
-  { name: "Winelands Day Tour", destinations: "Stellenbosch · Franschhoek · Paarl", nights: "1 Day", price: "From R1,200 pp" },
-  { name: "Namibia Desert Safari", destinations: "Sossusvlei · Etosha · Swakopmund", nights: "10 Nights", price: "From R28,000 pp" },
-  { name: "Southern Africa Grand Tour", destinations: "Cape Town · Victoria Falls · Okavango", nights: "14 Nights", price: "From R52,000 pp" },
+  { name: "Cape Peninsula & Boulders Beach", destinations: "Cape Point · Chapman's Peak · Simonstown", nights: "1 Day" },
+  { name: "Garden Route Explorer", destinations: "Knysna · Tsitsikamma · Plettenberg Bay", nights: "5 Nights" },
+  { name: "Big 5 Safari & Cape Town", destinations: "Kruger National Park · Cape Peninsula", nights: "7 Nights" },
+  { name: "Winelands Day Tour", destinations: "Stellenbosch · Franschhoek · Paarl", nights: "1 Day" },
+  { name: "Table Mountain & City Highlights", destinations: "Table Mountain · Bo-Kaap · Waterfront", nights: "1 Day" },
+  { name: "Southern Africa Grand Tour", destinations: "Cape Town · Victoria Falls · Okavango", nights: "14 Nights" },
 ];
 
 const STEPS = [
@@ -141,6 +141,7 @@ const HR = ({ my = 0, opacity = 0.3 }) => (
 );
 
 export default function Home() {
+  const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(null);
   const [transitioning, setTransitioning] = useState(false);
@@ -447,13 +448,12 @@ export default function Home() {
           <div className="tour-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
             {TOURS.map((tour, i) => (
               <Fade key={i} delay={i * 0.06}>
-                <div className="tour-card" onClick={() => window.location = "/enquire"}>
+                <div className="tour-card" onClick={() => navigate("/enquire")}>
                   <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: t.sandDark, marginBottom: 12 }}>{tour.nights}</div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 600, letterSpacing: "0.03em", color: t.charcoal, lineHeight: 1.2, marginBottom: 10 }}>{tour.name}</h3>
                   <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 300, letterSpacing: "0.05em", color: t.muted, marginBottom: 22, lineHeight: 1.6 }}>{tour.destinations}</p>
                   <HR my={0} opacity={0.45} />
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 18 }}>
-                    <span style={{ fontFamily: "'Jost', sans-serif", fontSize: 13, fontWeight: 500, color: t.earthMid, letterSpacing: "0.03em" }}>{tour.price}</span>
+                  <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", marginTop: 18 }}>
                     <span className="tour-link">Explore <span>→</span></span>
                   </div>
                 </div>

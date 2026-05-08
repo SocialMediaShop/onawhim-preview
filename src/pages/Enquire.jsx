@@ -302,7 +302,7 @@ export default function Enquire() {
                     <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                       <div>
                         <label style={labelStyle}>Phone Number</label>
-                        <input className="ow-input" style={inputStyle(false)} placeholder="+27 or international" value={form.phone} onChange={e => set("phone", e.target.value)} />
+                        <input className="ow-input" style={inputStyle(false)} placeholder="+27 62 138 0622" value={form.phone} onChange={e => set("phone", e.target.value)} />
                       </div>
                       <div>
                         <label style={labelStyle}>Country of Residence</label>

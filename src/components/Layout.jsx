@@ -174,7 +174,7 @@ export default function Layout({ children }) {
                <div style={{ fontSize: 10, color: t.sandDark, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 20 }}>Contact</div>
                <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, lineHeight: 1.8 }}>
                  info@onawhim.co.za<br />
-                 +27 (0) 21 000 0000<br />
+                 +27 62 138 0622<br />
                  Cape Town, South Africa
                </div>
             </div>

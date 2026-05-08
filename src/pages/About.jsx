@@ -627,7 +627,7 @@ export default function About() {
                   fontFamily: "'Jost', sans-serif", fontSize: 12,
                   color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em",
                 }}>
-                  or call &nbsp;<strong style={{ color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>+27 (0) 21 000 0000</strong>
+                  or call &nbsp;<strong style={{ color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>+27 62 138 0622</strong>
                 </span>
               </div>
             </div>
