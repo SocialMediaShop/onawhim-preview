@@ -309,7 +309,7 @@ export default function Home() {
             }}>
               {HERO_IMAGES[slide].headline[0]}
             </h1>
-            <h1 className="hero-text d2" style={{
+            <div className="hero-text d2" style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: "clamp(50px, 7.5vw, 96px)",
               fontWeight: 300, fontStyle: "italic",
@@ -318,7 +318,7 @@ export default function Home() {
               marginBottom: 30,
             }}>
               {HERO_IMAGES[slide].headline[1]}
-            </h1>
+            </div>
 
             <p className="hero-text d3" style={{
               fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300,

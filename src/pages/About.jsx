@@ -158,14 +158,14 @@ export default function About() {
             textTransform: "uppercase", lineHeight: 0.96,
             color: t.white,
           }}>About</h1>
-          <h1 className="hi d3 hero-h1" style={{
+          <div className="hi d3 hero-h1" style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(48px,7.5vw,96px)",
             fontWeight: 300, fontStyle: "italic",
             letterSpacing: "0.04em", lineHeight: 1.05,
             color: "rgba(255,255,255,0.88)",
             marginBottom: 30,
-          }}>On a Whim</h1>
+          }}>On a Whim</div>
 
           <p className="hi d4" style={{
             fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300,

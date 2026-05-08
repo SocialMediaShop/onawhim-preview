@@ -550,9 +550,9 @@ export default function Safari() {
             <h1 className="hi d2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px,7vw,88px)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 0.95, color: t.white }}>
               {heading[0]}
             </h1>
-            <h1 className="hi d3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px,7vw,88px)", fontWeight: 300, fontStyle: "italic", letterSpacing: "0.04em", lineHeight: 1.05, color: "rgba(255,255,255,0.88)", marginBottom: 28 }}>
+            <div className="hi d3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px,7vw,88px)", fontWeight: 300, fontStyle: "italic", letterSpacing: "0.04em", lineHeight: 1.05, color: "rgba(255,255,255,0.88)", marginBottom: 28 }}>
               {heading[1]}
-            </h1>
+            </div>
             <p className="hi d4" style={{ fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300, lineHeight: 1.78, color: "rgba(255,255,255,0.65)", maxWidth: 500, marginBottom: 40 }}>
               {sub}
             </p>
