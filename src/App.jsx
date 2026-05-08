@@ -5,9 +5,21 @@ import About from "./pages/About";
 import Enquire from "./pages/Enquire";
 import Safari from "./pages/Safari";
 
+import { useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
