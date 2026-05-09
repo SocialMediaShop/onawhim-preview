@@ -74,6 +74,18 @@ export default function Layout({ children }) {
 
         @media (max-width: 768px) {
           .hide-sm { display: none !important; }
+          .footer-container { padding: 60px 24px 40px !important; }
+          .footer-grid { grid-template-columns: 1fr !important; gap: 48px !important; text-align: center; }
+          .footer-section { display: flex; flex-direction: column; align-items: center; }
+          .footer-bottom { flex-direction: column !important; gap: 24px; text-align: center; }
+          .footer-desc { max-width: 100% !important; }
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 60px;
+          margin-bottom: 60px;
         }
       `}</style>
 
@@ -153,16 +165,16 @@ export default function Layout({ children }) {
       <main>{children}</main>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: t.charcoal, padding: "72px 56px 32px", borderTop: `3px solid ${t.earth}` }}>
+      <footer className="footer-container" style={{ background: t.charcoal, padding: "72px 56px 32px", borderTop: `3px solid ${t.earth}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 60, marginBottom: 60 }}>
-            <div>
+          <div className="footer-grid">
+            <div className="footer-section">
                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, color: t.white, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>On a Whim</div>
-               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, maxWidth: 280 }}>
+               <p className="footer-desc" style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, maxWidth: 280 }}>
                  Bespoke journeys across South Africa and Southern Africa. Travel with people who know this land deeply.
                </p>
             </div>
-            <div>
+            <div className="footer-section">
                <div style={{ fontSize: 10, color: t.sandDark, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 20 }}>Quick Links</div>
                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                  {["Tours", "Destinations", "About", "Enquire"].map(l => (
@@ -170,7 +182,7 @@ export default function Layout({ children }) {
                  ))}
                </div>
             </div>
-            <div>
+            <div className="footer-section">
                <div style={{ fontSize: 10, color: t.sandDark, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 20 }}>Contact</div>
                <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, lineHeight: 1.8 }}>
                  <a href="mailto:info@onawhim.co.za" style={{ color: "inherit", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = t.white} onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.6)"}>info@onawhim.co.za</a><br />
@@ -179,7 +191,7 @@ export default function Layout({ children }) {
                </div>
             </div>
           </div>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 On a Whim. IATA TIDS Accredited.</span>
             <div style={{ display: "flex", gap: 20 }}>
                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>Privacy Policy</span>
