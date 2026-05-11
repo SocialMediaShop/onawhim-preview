@@ -110,9 +110,9 @@ export default function About() {
 
         @media (max-width: 768px) {
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .three-col { grid-template-columns: 1fr !important; }
-          .sp { padding-left: 24px !important; padding-right: 24px !important; }
-          .hero-h1 { font-size: clamp(44px, 10vw, 88px) !important; }
+          .three-col { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .sp { padding-left: 20px !important; padding-right: 20px !important; }
+          .hero-h1 { font-size: clamp(40px, 10vw, 80px) !important; }
         }
       `}</style>
 
@@ -135,7 +135,7 @@ export default function About() {
           position: "absolute", inset: 0, opacity: 0.025, pointerEvents: "none",
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
         }} />
-        <div style={{ position: "absolute", top: 108, left: 56, opacity: 0.2 }}>
+        <div className="hide-mobile" style={{ position: "absolute", top: 108, left: 56, opacity: 0.2 }}>
           <div style={{ width: 1, height: 56, background: t.white, marginBottom: 6 }} />
           <div style={{ width: 36, height: 1, background: t.white }} />
         </div>
@@ -435,8 +435,14 @@ export default function About() {
                 background: t.creamDark,
                 border: `1px solid ${t.creamDeep}`,
                 padding: "44px 40px",
-                position: "sticky", top: 100,
+                position: "relative",
               }}>
+                <style>{`
+                  @media (min-width: 901px) {
+                    .sticky-box { position: sticky; top: 100px; }
+                  }
+                `}</style>
+                <div className="sticky-box">
                 <Label>The Thinking Behind It</Label>
                 <h3 style={{
                   fontFamily: "'Cormorant Garamond', serif",
@@ -487,6 +493,7 @@ export default function About() {
                     ))}
                   </div>
                 </div>
+              </div>
               </div>
             </Fade>
           </div>

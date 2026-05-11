@@ -251,11 +251,13 @@ export default function Home() {
         .tour-link:hover { border-color: ${t.gold}; }
 
         @media (max-width: 768px) {
-          .dest-grid { grid-template-columns: 1fr 1fr !important; }
+          .dest-grid { grid-template-columns: 1fr !important; }
           .tour-grid { grid-template-columns: 1fr !important; }
           .step-grid { grid-template-columns: 1fr !important; }
-          .sp { padding-left: 24px !important; padding-right: 24px !important; }
           .welcome-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+        @media (min-width: 480px) and (max-width: 768px) {
+          .dest-grid { grid-template-columns: 1fr 1fr !important; }
         }
       `}</style>
 
@@ -283,11 +285,11 @@ export default function Home() {
         }} />
 
         {/* Corner bracket decorations */}
-        <div style={{ position: "absolute", top: 108, left: 56, zIndex: 5, opacity: 0.22 }}>
+        <div className="hide-mobile" style={{ position: "absolute", top: 108, left: 56, zIndex: 5, opacity: 0.22 }}>
           <div style={{ width: 1, height: 56, background: t.white, marginBottom: 6 }} />
           <div style={{ width: 36, height: 1, background: t.white }} />
         </div>
-        <div style={{ position: "absolute", top: 108, right: 56, zIndex: 5, opacity: 0.22 }}>
+        <div className="hide-mobile" style={{ position: "absolute", top: 108, right: 56, zIndex: 5, opacity: 0.22 }}>
           <div style={{ width: 1, height: 56, background: t.white, marginLeft: "auto", marginBottom: 6 }} />
           <div style={{ width: 36, height: 1, background: t.white, marginLeft: "auto" }} />
         </div>
@@ -348,10 +350,10 @@ export default function Home() {
       </section>
 
       {/* ── TRUST BAR ── */}
-      <div style={{
-        background: t.charcoal, padding: "22px 56px",
+      <div className="sp" style={{
+        background: t.charcoal, padding: "28px 56px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        gap: 20, flexWrap: "wrap",
+        gap: 24, flexWrap: "wrap",
       }}>
         {[
           { stat: "10+ Years", label: "Experience" },
@@ -359,7 +361,7 @@ export default function Home() {
           { stat: "IATA TIDS Accredited", label: "Professional Credibility" },
           { stat: "24-Hour Response", label: "Personalised Proposals" },
         ].map((item, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, minWidth: "fit-content" }}>
             <div>
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 16, fontWeight: 600, letterSpacing: "0.08em", color: t.white }}>{item.stat}</div>
               <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 9.5, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginTop: 1 }}>{item.label}</div>

@@ -200,14 +200,23 @@ function PackageCard({ pkg, index }) {
       }}>
 
         {/* ── CARD HEADER ── */}
-        <div style={{
+        <div className="pkg-header" style={{
           display: "grid",
           gridTemplateColumns: "280px 1fr auto",
           gap: 0,
           cursor: "pointer",
         }} onClick={() => setExpanded(!expanded)}>
+          <style>{`
+            @media (max-width: 900px) {
+              .pkg-header { grid-template-columns: 1fr !important; }
+              .pkg-img-box { min-height: 240px !important; }
+              .pkg-info-box { border-left: none !important; border-top: 1px solid ${t.creamDeep} !important; padding: 24px 20px !important; }
+              .pkg-price-box { border-left: none !important; border-top: 1px solid ${t.creamDeep} !important; padding: 24px 20px !important; align-items: flex-start !important; text-align: left !important; }
+              .pkg-price-box div { text-align: left !important; }
+            }
+          `}</style>
 
-          <div style={{
+          <div className="pkg-img-box" style={{
             background: t.charcoal,
             minHeight: 200,
             position: "relative",
@@ -250,7 +259,7 @@ function PackageCard({ pkg, index }) {
             </div>
           </div>
 
-          <div style={{ padding: "32px 36px", borderLeft: `1px solid ${t.creamDeep}` }}>
+          <div className="pkg-info-box" style={{ padding: "32px 36px", borderLeft: `1px solid ${t.creamDeep}` }}>
             <p style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 18, fontStyle: "italic", fontWeight: 300,
@@ -277,7 +286,7 @@ function PackageCard({ pkg, index }) {
             </div>
           </div>
 
-          <div style={{
+          <div className="pkg-price-box" style={{
             padding: "32px 28px",
             borderLeft: `1px solid ${t.creamDeep}`,
             display: "flex", flexDirection: "column",
@@ -519,7 +528,9 @@ export default function Safari() {
         .hi.d4 { animation-delay: 0.75s; opacity: 0; }
 
         @media (max-width: 900px) {
-          .sp { padding-left: 24px !important; padding-right: 24px !important; }
+          .sp { padding-left: 20px !important; padding-right: 20px !important; }
+          .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .hide-sm { display: none !important; }
         }
       `}</style>
 
@@ -537,7 +548,7 @@ export default function Safari() {
         }} />
         <div style={{ position: "absolute", inset: 0, opacity: 0.02, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
 
-        <div style={{ position: "absolute", top: 36, left: 56, opacity: 0.2 }}>
+        <div className="hide-mobile" style={{ position: "absolute", top: 36, left: 56, opacity: 0.2 }}>
           <div style={{ width: 1, height: 48, background: t.white, marginBottom: 5 }} />
           <div style={{ width: 32, height: 1, background: t.white }} />
         </div>
@@ -565,7 +576,7 @@ export default function Safari() {
       </section>
 
       {/* ── INTRO STRIP ── */}
-      <div style={{ background: t.charcoal, padding: "22px 56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
+      <div className="sp" style={{ background: t.charcoal, padding: "22px 56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
         {[
           { stat: "Explorer Safaris", label: "Bushtracks Africa · Est. 1989" },
           { stat: "3 Itineraries", label: "Fully curated, select departures" },
