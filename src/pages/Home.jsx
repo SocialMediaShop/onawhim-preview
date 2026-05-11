@@ -330,7 +330,6 @@ export default function Home() {
 
             <div className="hero-text d4" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
               <Link to="/enquire" className="cta-primary">Start Planning</Link>
-              <Link to="/tours" className="cta-ghost">View Tours</Link>
             </div>
           </div>
         </div>
@@ -381,10 +380,9 @@ export default function Home() {
           </Fade>
           <Fade delay={0.15}>
             <div style={{ borderLeft: `1px solid ${t.sand}`, paddingLeft: 40 }}>
-              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 16, fontWeight: 300, lineHeight: 1.85, color: t.muted, marginBottom: 26, letterSpacing: "0.01em" }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 16, fontWeight: 300, lineHeight: 1.85, color: t.muted, marginBottom: 0, letterSpacing: "0.01em" }}>
                 At On a Whim, we're guided by our love and passion for Southern Africa. From a single day on the Cape Peninsula to a 14-day cross-border safari, every experience is personalised, expert-guided, and built entirely around you.
               </p>
-              <Link to="/tours" className="cta-outline">Explore Our Tours</Link>
             </div>
           </Fade>
         </div>
@@ -402,7 +400,6 @@ export default function Home() {
                   <span style={{ fontStyle: "italic", fontWeight: 300 }}>Destinations</span>
                 </BigHeading>
               </div>
-              <Link to="/destinations" className="cta-outline">View All Destinations</Link>
             </div>
           </Fade>
 

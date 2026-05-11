@@ -231,8 +231,13 @@ export default function Enquire() {
 
         @media (max-width: 768px) {
           .page-grid { grid-template-columns: 1fr !important; }
-          .sp { padding-left: 24px !important; padding-right: 24px !important; }
+          .sp { padding-left: 20px !important; padding-right: 20px !important; }
           .form-row { grid-template-columns: 1fr !important; }
+          .info-panel { position: static !important; height: auto !important; padding: 48px 20px !important; }
+          .form-panel { padding: 40px 20px 60px !important; border-right: none !important; border-bottom: 1px solid ${t.creamDeep} !important; }
+          .step-indicator { flex-wrap: wrap; gap: 15px !important; }
+          .step-item span { font-size: 9px !important; }
+          .step-line { display: none !important; }
         }
       `}</style>
 
@@ -241,7 +246,7 @@ export default function Enquire() {
         maxWidth: 1400, margin: "0 auto", minHeight: "calc(100vh - 80px)",
       }}>
         {/* ── LEFT — FORM PANEL ─────────────────────────────── */}
-        <div style={{ padding: "64px 56px 80px", background: t.cream, borderRight: `1px solid ${t.creamDeep}` }}>
+        <div className="form-panel" style={{ padding: "64px 56px 80px", background: t.cream, borderRight: `1px solid ${t.creamDeep}` }}>
           {submitted ? (
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: 480, textAlign: "center", padding: "40px 0" }}>
               <div style={{ width: 72, height: 72, borderRadius: "50%", background: t.creamDark, border: `1px solid ${t.sand}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32 }}>
@@ -269,16 +274,16 @@ export default function Enquire() {
               </div>
 
               {/* Step indicator */}
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 48 }}>
+              <div className="step-indicator" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 48 }}>
                 {[1, 2, 3].map(s => (
-                  <div key={s} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <div key={s} className="step-item" style={{ display: "flex", alignItems: "center", gap: 10 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <div className="step-dot" style={{ background: step >= s ? t.charcoal : t.creamDeep, width: step === s ? 10 : 8, height: step === s ? 10 : 8 }} />
                       <span style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: step >= s ? t.charcoal : t.sandDark }}>
                         {s === 1 ? "Your Details" : s === 2 ? "Your Trip" : "Final Details"}
                       </span>
                     </div>
-                    {s < 3 && <div style={{ width: 28, height: 1, background: step > s ? t.charcoal : t.creamDeep, transition: "background 0.3s" }} />}
+                    {s < 3 && <div className="step-line" style={{ width: 28, height: 1, background: step > s ? t.charcoal : t.creamDeep, transition: "background 0.3s" }} />}
                   </div>
                 ))}
               </div>
@@ -399,7 +404,7 @@ export default function Enquire() {
         </div>
 
         {/* ── RIGHT — INFO PANEL ────────────────────────────── */}
-        <div style={{ background: t.charcoal, padding: "64px 48px", color: t.white, position: "sticky", top: 80, height: "calc(100vh - 80px)", overflowY: "auto" }}>
+        <div className="info-panel" style={{ background: t.charcoal, padding: "64px 48px", color: t.white, position: "sticky", top: 80, height: "calc(100vh - 80px)", overflowY: "auto" }}>
           <Fade>
             <Label light>Why Enquire With Us</Label>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px,3vw,38px)", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", lineHeight: 1.05, color: t.white, marginBottom: 36 }}>Your Journey<br /><span style={{ fontWeight: 300, fontStyle: "italic" }}>Starts Here</span></h2>
