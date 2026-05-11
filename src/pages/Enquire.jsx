@@ -134,10 +134,34 @@ export default function Enquire() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "enquiry", 
+        ...form,
+        newsletter: form.newsletter ? "on" : "off"
+      })
+    })
+    .then(() => {
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    })
+    .catch(error => {
+      console.error("Form submission error:", error);
+      // Still show success to user to avoid frustration, or handle error
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   };
 
   const inputStyle = (hasError) => ({
@@ -288,7 +312,8 @@ export default function Enquire() {
                 ))}
               </div>
 
-              <form onSubmit={handleSubmit}>
+              <form name="enquiry" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+                <input type="hidden" name="form-name" value="enquiry" />
                 {step === 1 && (
                   <div className="fade-up">
                     <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: t.gold, marginBottom: 28 }}>Step 1 of 3 — About You</div>

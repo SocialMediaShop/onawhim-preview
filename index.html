@@ -50,26 +50,19 @@
   <body>
     <div id="root"></div>
 
-    <!-- Netlify Form Detection -->
-    <form name="contact" method="POST" data-netlify="true" style="display: none;">
-      <p>
-        <label>Your Name: <input type="text" name="name" /></label>
-      </p>
-      <p>
-        <label>Your Email: <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <label>Your Role: <select name="role[]" multiple>
-          <option value="leader">Leader</option>
-          <option value="follower">Follower</option>
-        </select></label>
-      </p>
-      <p>
-        <label>Message: <textarea name="message"></textarea></label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
+    <!-- Netlify Form Detection (Enquiry Form) -->
+    <form name="enquiry" method="POST" data-netlify="true" style="display: none;">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="country" />
+      <input type="text" name="tourType" />
+      <input type="text" name="groupSize" />
+      <input type="text" name="travelMonth" />
+      <input type="text" name="duration" />
+      <textarea name="message"></textarea>
+      <input type="text" name="howHeard" />
+      <input type="checkbox" name="newsletter" />
     </form>
 
     <script type="module" src="/src/main.jsx"></script>
