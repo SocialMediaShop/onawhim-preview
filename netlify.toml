@@ -12,3 +12,5 @@
 
   [plugins.inputs]
     baseUrl = "https://onawhim.co.za"
+    # Add this line below only if you have other pages you want indexed:
+    pages = ["/", "/tours", "/safari", "/about", "/enquire"] 
