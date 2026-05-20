@@ -12,4 +12,4 @@
 
   [plugins.inputs]
     baseUrl = "https://onawhim.co.za"
-     pages = ["/", "/tours", "/safari", "/about", "/enquire"] 
+    buildDir = "dist"
