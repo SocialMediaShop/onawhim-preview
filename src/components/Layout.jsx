@@ -17,6 +17,17 @@ const t = {
   muted:     "#7A6E63",
 };
 
+const SocialIcons = ({ size = 16, gap = 16 }) => (
+  <div style={{ display: "flex", gap, alignItems: "center" }}>
+    <a href="https://www.facebook.com/onawhimtravelandtours" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", transition: "opacity 0.3s", opacity: 0.8 }} onMouseEnter={e => e.currentTarget.style.opacity = 1} onMouseLeave={e => e.currentTarget.style.opacity = 0.8} aria-label="Facebook">
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+    <a href="https://www.instagram.com/africaonawhim" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", transition: "opacity 0.3s", opacity: 0.8 }} onMouseEnter={e => e.currentTarget.style.opacity = 1} onMouseLeave={e => e.currentTarget.style.opacity = 0.8} aria-label="Instagram">
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+  </div>
+);
+
 export default function Layout({ children }) {
   const [scrollY, setScrollY] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -129,7 +140,12 @@ export default function Layout({ children }) {
               {item.l}
             </Link>
           ))}
-          <Link to="/enquire" className="cta-nav">Start Planning</Link>
+          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+            <div className={navSolid ? "nav-dark" : "nav-light"} style={{ display: "flex" }}>
+              <SocialIcons size={15} gap={16} />
+            </div>
+            <Link to="/enquire" className="cta-nav">Start Planning</Link>
+          </div>
         </div>
 
         <button className="show-sm" onClick={() => setMobileOpen(true)}
@@ -159,7 +175,10 @@ export default function Layout({ children }) {
             color: t.white, textDecoration: "none", cursor: "pointer",
           }}>{item.l}</Link>
         ))}
-        <Link to="/enquire" className="cta-nav" style={{ padding: "14px 40px", fontSize: 12 }}>Start Planning</Link>
+        <Link to="/enquire" className="cta-nav" style={{ padding: "14px 40px", fontSize: 12, marginBottom: 12 }}>Start Planning</Link>
+        <div style={{ color: t.white }}>
+          <SocialIcons size={20} gap={24} />
+        </div>
       </div>
 
       <main>{children}</main>
@@ -188,6 +207,9 @@ export default function Layout({ children }) {
                  <a href="mailto:info@onawhim.co.za" style={{ color: "inherit", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = t.white} onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.6)"}>info@onawhim.co.za</a><br />
                  <a href="tel:+27621380622" style={{ color: "inherit", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = t.white} onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.6)"}>+27 62 138 0622</a><br />
                  Cape Town, South Africa
+                 <div style={{ marginTop: 24, color: t.white }}>
+                   <SocialIcons size={16} gap={16} />
+                 </div>
                </div>
             </div>
           </div>
