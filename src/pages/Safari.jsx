@@ -56,6 +56,7 @@ const PACKAGES = [
     mapRegion: "Zimbabwe",
     route: "Victoria Falls → Hwange",
     pages: ["safari", "southern-africa"],
+    pdfPath: "/pdfs/vic-falls-hwange.pdf",
   },
   {
     id: "livingstone-chobe",
@@ -97,6 +98,7 @@ const PACKAGES = [
     mapRegion: "Zambia · Botswana",
     route: "Livingstone → Kasane",
     pages: ["safari", "southern-africa"],
+    pdfPath: "/pdfs/livingstone-chobe.pdf",
   },
   {
     id: "livingstone-lower-zambezi",
@@ -138,6 +140,7 @@ const PACKAGES = [
     mapRegion: "Zambia",
     route: "Livingstone → Lower Zambezi",
     pages: ["safari", "southern-africa"],
+    pdfPath: "/pdfs/livingstone-lower-zambezi.pdf",
   },
 ];
 
@@ -457,9 +460,14 @@ function PackageCard({ pkg, index }) {
                   ))}
                 </div>
 
-                <Link to="/enquire" className="cta-primary" style={{ width: "100%", textAlign: "center" }}>
+                <Link to="/enquire" className="cta-primary" style={{ width: "100%", textAlign: "center", marginBottom: pkg.pdfPath ? 12 : 0 }}>
                   Enquire About This Package
                 </Link>
+                {pkg.pdfPath && (
+                  <a href={pkg.pdfPath} target="_blank" rel="noopener noreferrer" className="cta-ghost-light" style={{ width: "100%", textAlign: "center", display: "block" }}>
+                    Download Package PDF ↓
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -516,6 +524,17 @@ export default function Safari() {
           text-decoration: none;
         }
         .cta-ghost-dark:hover { border-color: white; color: white; }
+
+        .cta-ghost-light {
+          display: inline-block; font-family: 'Jost', sans-serif;
+          font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
+          text-transform: uppercase; padding: 13px 36px;
+          background: transparent; color: ${t.charcoal};
+          border: 1px solid ${t.sandDark}; cursor: pointer;
+          transition: all 0.25s;
+          text-decoration: none;
+        }
+        .cta-ghost-light:hover { border-color: ${t.charcoal}; background: ${t.charcoal}; color: ${t.white}; }
 
         @keyframes heroIn {
           from { opacity: 0; transform: translateY(12px); }
