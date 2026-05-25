@@ -192,10 +192,24 @@ const BigHead = ({ children, light, size = "clamp(32px,4.5vw,60px)", style: sx =
 /* ─── PACKAGE CARD ─────────────────────────────────────────── */
 function PackageCard({ pkg, index }) {
   const [expanded, setExpanded] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === `#${pkg.id}`) {
+      setExpanded(true);
+      const timer = setTimeout(() => {
+        const el = document.getElementById(pkg.id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash, pkg.id]);
 
   return (
     <Fade delay={index * 0.1}>
-      <article style={{
+      <article id={pkg.id} style={{
         background: t.offWhite,
         border: `1px solid ${t.creamDeep}`,
         marginBottom: 2,

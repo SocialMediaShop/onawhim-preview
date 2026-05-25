@@ -92,6 +92,36 @@ const STEPS = [
   { n: "03", title: "Confirm & Start Packing", body: "Review your proposal, make any changes, confirm your booking. Then all that's left is the anticipation." },
 ];
 
+const NOW_BOOKING_PACKAGES = [
+  {
+    id: "vic-falls-hwange",
+    name: "Victoria Falls & Hwange",
+    dates: "9 Aug · 23 Aug · 6 Sep · 4 Oct",
+    price: "From $4,939 pp",
+    image: "/images/now%20booking/Victoria_Falls_Hwange.png",
+    tag: "Zimbabwe",
+    spots: "4 spots left"
+  },
+  {
+    id: "livingstone-chobe",
+    name: "Livingstone & Chobe",
+    dates: "2 Jul · 23 Jul · 20 Aug · 22 Oct",
+    price: "From $4,176 pp",
+    image: "/images/now%20booking/Livingstone_Chobe.png",
+    tag: "Zambia · Botswana",
+    spots: "6 spots left"
+  },
+  {
+    id: "livingstone-lower-zambezi",
+    name: "Livingstone & Lower Zambezi",
+    dates: "25 Jul · 1 Aug · 5 Sep · 17 Sep",
+    price: "From $6,185 pp",
+    image: "/images/now%20booking/Livingstone_Lower_Zambezi.png",
+    tag: "Zambia",
+    spots: "Selling Fast"
+  }
+];
+
 function useInView(threshold = 0.1) {
   const ref = useRef(null);
   const [v, setV] = useState(false);
@@ -259,6 +289,90 @@ export default function Home() {
         @media (min-width: 480px) and (max-width: 768px) {
           .dest-grid { grid-template-columns: 1fr 1fr !important; }
         }
+
+        .nb-card {
+          position: relative;
+          overflow: hidden;
+          background: ${t.offWhite};
+          border: 1px solid ${t.creamDeep};
+          transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+        }
+        .nb-card:hover {
+          transform: translateY(-8px);
+          border-color: ${t.sandDark};
+          box-shadow: 0 16px 32px rgba(61,43,26,0.06);
+        }
+        .nb-img-container {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 4/3;
+          overflow: hidden;
+        }
+        .nb-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          filter: brightness(0.85) saturate(1.05);
+        }
+        .nb-card:hover .nb-img {
+          transform: scale(1.12) !important;
+        }
+        .nb-pulse-dot {
+          width: 8px;
+          height: 8px;
+          background: #2b8a3e;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 10px;
+          vertical-align: middle;
+          animation: nb-pulse 1.8s infinite ease-in-out;
+        }
+        @keyframes nb-pulse {
+          0% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 0 0 rgba(43, 138, 62, 0.7); }
+          70% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 0 6px rgba(43, 138, 62, 0); }
+          100% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 0 0 rgba(43, 138, 62, 0); }
+        }
+        .nb-badge {
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          background: ${t.charcoal};
+          color: ${t.white};
+          padding: 6px 12px;
+          font-family: 'Jost', sans-serif;
+          font-size: 9px;
+          font-weight: 500;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          z-index: 10;
+        }
+        .nb-spots-badge {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          background: ${t.gold};
+          color: ${t.white};
+          padding: 6px 12px;
+          font-family: 'Jost', sans-serif;
+          font-size: 9px;
+          font-weight: 500;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          z-index: 10;
+          animation: float-shimmer 3s infinite ease-in-out;
+        }
+        @keyframes float-shimmer {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        @keyframes slow-pan {
+          0% { transform: scale(1.02) translate(0, 0); }
+          100% { transform: scale(1.08) translate(-1%, -1%); }
+        }
       `}</style>
 
       {/* ── HERO ── */}
@@ -387,6 +501,96 @@ export default function Home() {
               </p>
             </div>
           </Fade>
+        </div>
+      </section>
+
+      {/* ── NOW BOOKING ── */}
+      <section className="sp" style={{ padding: "100px 56px", background: t.offWhite }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Fade>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 52, flexWrap: "wrap", gap: 16 }}>
+              <div>
+                <EyebrowLabel>
+                  <span className="nb-pulse-dot" />
+                  Limited Departures · 2026
+                </EyebrowLabel>
+                <BigHeading size="clamp(30px,4vw,50px)">
+                  Now<br />
+                  <span style={{ fontStyle: "italic", fontWeight: 300 }}>Booking</span>
+                </BigHeading>
+              </div>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 14, fontWeight: 300, color: t.muted, maxWidth: 380, lineHeight: 1.75 }}>
+                Secure your place on our highly exclusive, small-group explorer safaris. Maximum 8 guests per departure. Click below to view the detailed itineraries.
+              </p>
+            </div>
+          </Fade>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 30 }}>
+            {NOW_BOOKING_PACKAGES.map((pkg, i) => (
+              <Fade key={i} delay={i * 0.1}>
+                <div 
+                  className="nb-card" 
+                  onClick={() => navigate(`/safari#${pkg.id}`)}
+                >
+                  <div className="nb-img-container">
+                    <span className="nb-badge">{pkg.tag}</span>
+                    <span className="nb-spots-badge" style={{ animationDelay: `${i * 0.5}s` }}>{pkg.spots}</span>
+                    <img 
+                      className="nb-img" 
+                      src={pkg.image} 
+                      alt={pkg.name} 
+                      style={{ 
+                        animation: `slow-pan ${20 + i * 2}s infinite alternate ease-in-out`,
+                        animationDelay: `${-i * 4}s`
+                      }} 
+                    />
+                  </div>
+                  <div style={{ padding: "28px 24px" }}>
+                    <h3 style={{ 
+                      fontFamily: "'Cormorant Garamond', serif", 
+                      fontSize: 24, 
+                      fontWeight: 600, 
+                      letterSpacing: "0.03em", 
+                      color: t.charcoal, 
+                      lineHeight: 1.2, 
+                      marginBottom: 10 
+                    }}>{pkg.name}</h3>
+                    <p style={{ 
+                      fontFamily: "'Jost', sans-serif", 
+                      fontSize: 13, 
+                      fontWeight: 300, 
+                      color: t.muted, 
+                      marginBottom: 18, 
+                      lineHeight: 1.6 
+                    }}>
+                      <strong>Key Dates:</strong> {pkg.dates}
+                    </p>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <span style={{ 
+                        fontFamily: "'Jost', sans-serif", 
+                        fontSize: 14, 
+                        fontWeight: 500, 
+                        color: t.charcoal 
+                      }}>{pkg.price}</span>
+                      <span style={{
+                        fontFamily: "'Jost', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        letterSpacing: "0.15em",
+                        textTransform: "uppercase",
+                        color: t.gold,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 6
+                      }}>
+                        View Details →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Fade>
+            ))}
+          </div>
         </div>
       </section>
 
