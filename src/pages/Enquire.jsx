@@ -83,6 +83,12 @@ const HOW_HEARD = [
   "Other",
 ];
 
+const PKG_NAMES = {
+  "vic-falls-hwange": "Victoria Falls & Hwange",
+  "livingstone-chobe": "Livingstone & Chobe",
+  "livingstone-lower-zambezi": "Livingstone & Lower Zambezi",
+};
+
 export default function Enquire() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -101,6 +107,29 @@ export default function Enquire() {
     howHeard: "",
     newsletter: false,
   });
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const pkg = queryParams.get("pkg");
+    const date = queryParams.get("date");
+
+    const updates = {};
+    if (pkg) {
+      updates.tourType = "Safari & Wildlife";
+      const pkgName = PKG_NAMES[pkg] || pkg;
+      updates.message = `I am enquiring about the "${pkgName}" package.`;
+      if (date) {
+        updates.message += ` Preferred departure date: ${date}.`;
+        updates.travelMonth = date;
+      }
+    } else if (date) {
+      updates.travelMonth = date;
+    }
+
+    if (Object.keys(updates).length > 0) {
+      setForm(prev => ({ ...prev, ...updates }));
+    }
+  }, []);
 
   const set = (key, val) => {
     setForm(prev => ({ ...prev, [key]: val }));

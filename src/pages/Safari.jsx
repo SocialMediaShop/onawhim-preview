@@ -339,7 +339,7 @@ function PackageCard({ pkg, index }) {
                 {expanded ? "Close ↑" : "View Details ↓"}
               </button>
               <Link
-                to="/enquire"
+                to={`/enquire?pkg=${pkg.id}`}
                 onClick={e => e.stopPropagation()}
                 className="cta-primary"
                 style={{ padding: "10px 18px", fontSize: 10 }}
@@ -400,12 +400,19 @@ function PackageCard({ pkg, index }) {
                 {pkg.departures.dates ? (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 32 }}>
                     {pkg.departures.dates.map((d, i) => (
-                      <div key={i} style={{
-                        fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 400,
-                        padding: "6px 14px", background: t.creamDark,
-                        border: `1px solid ${t.creamDeep}`, color: t.earthMid,
-                        letterSpacing: "0.04em",
-                      }}>{d}</div>
+                      <Link 
+                        key={i} 
+                        to={`/enquire?pkg=${pkg.id}&date=${d}`}
+                        style={{
+                          fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 400,
+                          padding: "6px 14px", background: t.creamDark,
+                          border: `1px solid ${t.creamDeep}`, color: t.earthMid,
+                          letterSpacing: "0.04em",
+                          textDecoration: "none",
+                          cursor: "pointer",
+                        }}
+                        className="dep-date-link"
+                      >{d}</Link>
                     ))}
                   </div>
                 ) : (
@@ -413,21 +420,35 @@ function PackageCard({ pkg, index }) {
                     <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 9, fontWeight: 500, letterSpacing: "0.22em", textTransform: "uppercase", color: t.gold, marginBottom: 10 }}>High Season</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
                       {pkg.departures.highSeason.map((d, i) => (
-                        <div key={i} style={{
-                          fontFamily: "'Jost', sans-serif", fontSize: 12,
-                          padding: "6px 14px", background: t.creamDark,
-                          border: `1px solid ${t.creamDeep}`, color: t.earthMid,
-                        }}>{d}</div>
+                        <Link 
+                          key={i} 
+                          to={`/enquire?pkg=${pkg.id}&date=${d} (High Season)`}
+                          style={{
+                            fontFamily: "'Jost', sans-serif", fontSize: 12,
+                            padding: "6px 14px", background: t.creamDark,
+                            border: `1px solid ${t.creamDeep}`, color: t.earthMid,
+                            textDecoration: "none",
+                            cursor: "pointer",
+                          }}
+                          className="dep-date-link"
+                        >{d}</Link>
                       ))}
                     </div>
                     <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 9, fontWeight: 500, letterSpacing: "0.22em", textTransform: "uppercase", color: t.sandDark, marginBottom: 10 }}>Shoulder Season</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                       {pkg.departures.shoulder.map((d, i) => (
-                        <div key={i} style={{
-                          fontFamily: "'Jost', sans-serif", fontSize: 12,
-                          padding: "6px 14px", background: t.offWhite,
-                          border: `1px solid ${t.creamDeep}`, color: t.muted,
-                        }}>{d}</div>
+                        <Link 
+                          key={i} 
+                          to={`/enquire?pkg=${pkg.id}&date=${d} (Shoulder Season)`}
+                          style={{
+                            fontFamily: "'Jost', sans-serif", fontSize: 12,
+                            padding: "6px 14px", background: t.offWhite,
+                            border: `1px solid ${t.creamDeep}`, color: t.muted,
+                            textDecoration: "none",
+                            cursor: "pointer",
+                          }}
+                          className="dep-date-link"
+                        >{d}</Link>
                       ))}
                     </div>
                   </div>
@@ -474,7 +495,7 @@ function PackageCard({ pkg, index }) {
                   ))}
                 </div>
 
-                <Link to="/enquire" className="cta-primary" style={{ width: "100%", textAlign: "center", marginBottom: pkg.pdfPath ? 12 : 0 }}>
+                <Link to={`/enquire?pkg=${pkg.id}`} className="cta-primary" style={{ width: "100%", textAlign: "center", marginBottom: pkg.pdfPath ? 12 : 0 }}>
                   Enquire About This Package
                 </Link>
                 {pkg.pdfPath && (
@@ -549,6 +570,15 @@ export default function Safari() {
           text-decoration: none;
         }
         .cta-ghost-light:hover { border-color: ${t.charcoal}; background: ${t.charcoal}; color: ${t.white}; }
+
+        .dep-date-link {
+          transition: all 0.25s ease;
+        }
+        .dep-date-link:hover {
+          background: ${t.charcoal} !important;
+          color: ${t.white} !important;
+          border-color: ${t.charcoal} !important;
+        }
 
         @keyframes heroIn {
           from { opacity: 0; transform: translateY(12px); }

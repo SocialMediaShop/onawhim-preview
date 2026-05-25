@@ -55,7 +55,7 @@ const DESTINATIONS = [
     name: "Safari & Wildlife",
     nights: "2–10 nights",
     url: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80&fit=crop&crop=top",
-    path: "/enquire"
+    path: "/safari"
   },
   {
     name: "Multi-Day Packages",
