@@ -470,7 +470,7 @@ export default function Home() {
         gap: 24, flexWrap: "wrap",
       }}>
         {[
-          { stat: "10+ Years", label: "Experience" },
+          { stat: "Owner Managed", label: "Personal Service" },
           { stat: "Local Knowledge", label: "South African owned" },
           { stat: "IATA TIDS Accredited", label: "Professional Credibility" },
           { stat: "24-Hour Response", label: "Personalised Proposals" },
