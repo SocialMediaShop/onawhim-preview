@@ -248,14 +248,16 @@ export default function Home() {
           transition: transform 0.75s ease;
           filter: brightness(0.82) saturate(1.08);
         }
-        .dest-tile:hover img { transform: scale(1.07); }
         .dest-tile::after {
           content: ''; position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(15,8,2,0.75) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
           transition: background 0.4s;
         }
-        .dest-tile:hover::after {
-          background: linear-gradient(to top, rgba(15,8,2,0.85) 0%, rgba(0,0,0,0.22) 60%, transparent 100%);
+        @media (hover: hover) {
+          .dest-tile:hover img { transform: scale(1.07); }
+          .dest-tile:hover::after {
+            background: linear-gradient(to top, rgba(15,8,2,0.85) 0%, rgba(0,0,0,0.22) 60%, transparent 100%);
+          }
         }
         .dest-label {
           position: absolute; bottom: 0; left: 0; right: 0;
@@ -269,7 +271,9 @@ export default function Home() {
           transition: border-color 0.3s, transform 0.35s;
           cursor: pointer;
         }
-        .tour-card:hover { border-color: ${t.sandDark}; transform: translateY(-3px); }
+        @media (hover: hover) {
+          .tour-card:hover { border-color: ${t.sandDark}; transform: translateY(-3px); }
+        }
         .tour-link {
           font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
           letter-spacing: 0.18em; text-transform: uppercase;
@@ -278,7 +282,9 @@ export default function Home() {
           cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
           transition: border-color 0.2s;
         }
-        .tour-link:hover { border-color: ${t.gold}; }
+        @media (hover: hover) {
+          .tour-link:hover { border-color: ${t.gold}; }
+        }
 
         @media (max-width: 768px) {
           .dest-grid { grid-template-columns: 1fr !important; }
@@ -300,10 +306,12 @@ export default function Home() {
           display: flex;
           flex-direction: column;
         }
-        .nb-card:hover {
-          transform: translateY(-8px);
-          border-color: ${t.sandDark};
-          box-shadow: 0 16px 32px rgba(61,43,26,0.06);
+        @media (hover: hover) {
+          .nb-card:hover {
+            transform: translateY(-8px);
+            border-color: ${t.sandDark};
+            box-shadow: 0 16px 32px rgba(61,43,26,0.06);
+          }
         }
         .nb-img-container {
           position: relative;
@@ -318,8 +326,10 @@ export default function Home() {
           transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           filter: brightness(0.85) saturate(1.05);
         }
-        .nb-card:hover .nb-img {
-          transform: scale(1.12) !important;
+        @media (hover: hover) {
+          .nb-card:hover .nb-img {
+            transform: scale(1.12) !important;
+          }
         }
         .nb-pulse-dot {
           width: 8px;

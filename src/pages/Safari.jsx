@@ -569,15 +569,17 @@ export default function Safari() {
           transition: all 0.25s;
           text-decoration: none;
         }
-        .cta-ghost-light:hover { border-color: ${t.charcoal}; background: ${t.charcoal}; color: ${t.white}; }
+        @media (hover: hover) {
+          .cta-ghost-light:hover { border-color: ${t.charcoal}; background: ${t.charcoal}; color: ${t.white}; }
+          .dep-date-link:hover {
+            background: ${t.charcoal} !important;
+            color: ${t.white} !important;
+            border-color: ${t.charcoal} !important;
+          }
+        }
 
         .dep-date-link {
           transition: all 0.25s ease;
-        }
-        .dep-date-link:hover {
-          background: ${t.charcoal} !important;
-          color: ${t.white} !important;
-          border-color: ${t.charcoal} !important;
         }
 
         @keyframes heroIn {
