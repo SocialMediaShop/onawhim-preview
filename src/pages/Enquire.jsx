@@ -182,6 +182,7 @@ export default function Enquire() {
       })
     })
     .then(() => {
+      if (window.fbq) window.fbq('track', 'Lead');
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
