@@ -190,6 +190,33 @@ export default function Home() {
     return () => clearInterval(id);
   }, [slide]);
 
+  useEffect(() => {
+    // Define the success callback globally
+    window.ml_webform_success_42900468 = function() {
+      const rowSuccess = document.querySelector('.ml-subscribe-form-42900468 .row-success');
+      const rowForm = document.querySelector('.ml-subscribe-form-42900468 .row-form');
+      if (rowSuccess) rowSuccess.style.display = 'block';
+      if (rowForm) rowForm.style.display = 'none';
+    };
+
+    // Load MailerLite tracking/webforms script
+    if (!document.querySelector('script[src*="webforms.min.js"]')) {
+      const script = document.createElement('script');
+      script.src = "https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519";
+      script.type = "text/javascript";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    // Call load tracking (takel)
+    fetch("https://assets.mailerlite.com/jsonp/2462437/forms/190973097449358909/takel")
+      .catch(() => {});
+
+    return () => {
+      delete window.ml_webform_success_42900468;
+    };
+  }, []);
+
   return (
     <div style={{ background: t.cream, color: t.charcoal }}>
       <style>{`
@@ -699,6 +726,153 @@ export default function Home() {
               <Link to="/enquire" className="cta-primary">Start Planning</Link>
             </div>
           </Fade>
+        </div>
+      </section>
+
+      {/* ── NEWSLETTER ── */}
+      <section className="sp" style={{ padding: "100px 56px", background: t.offWhite, borderTop: `1px solid ${t.creamDeep}` }}>
+        <style>{`
+          .ml-form-embedSubmitLoad {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+          }
+          .ml-form-embedSubmitLoad:after {
+            content: " ";
+            display: block;
+            width: 11px;
+            height: 11px;
+            margin: 1px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            border-color: #ffffff #ffffff #ffffff transparent;
+            animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+          }
+          @keyframes ml-form-embedSubmitLoad {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+          }
+        `}</style>
+        <div style={{ maxWidth: 650, margin: "0 auto", textAlign: "center" }}>
+          <div id="mlb2-42900468" className="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-42900468">
+            <div className="ml-form-embedWrapper embedForm">
+              
+              {/* Form Content */}
+              <div className="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <Fade>
+                  <EyebrowLabel>Newsletter</EyebrowLabel>
+                  <BigHeading size="clamp(28px, 4vw, 42px)" style={{ marginBottom: 16 }}>
+                    Adventure is calling.<br />
+                    <span style={{ fontStyle: "italic", fontWeight: 300 }}>Will you answer it?</span>
+                  </BigHeading>
+                  <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, marginBottom: 36 }}>
+                    Sign up for travel inspiration, special offers and giveaways!
+                  </p>
+                </Fade>
+
+                <form className="ml-block-form" action="https://assets.mailerlite.com/jsonp/2462437/forms/190973097449358909/subscribe" data-code="" method="post" target="_blank">
+                  <div className="ml-form-formContent" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    
+                    <div className="ml-form-fieldRow ml-last-item">
+                      <div className="ml-field-group ml-field-email ml-validate-email ml-validate-required" style={{ position: "relative" }}>
+                        <input
+                          aria-label="email"
+                          aria-required="true"
+                          type="email"
+                          className="form-control"
+                          name="fields[email]"
+                          placeholder="Your email address"
+                          autoComplete="email"
+                          style={{
+                            width: "100%",
+                            padding: "14px 20px",
+                            background: t.cream,
+                            border: `1px solid ${t.sand}`,
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: 14,
+                            fontWeight: 300,
+                            color: t.charcoal,
+                            outline: "none",
+                            transition: "border-color 0.2s",
+                            textAlign: "center",
+                            borderRadius: 0,
+                          }}
+                          onFocus={(e) => e.target.style.borderColor = t.charcoal}
+                          onBlur={(e) => e.target.style.borderColor = t.sand}
+                        />
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="ml-submit" value="1" />
+                    <input type="hidden" name="anticsrf" value="true" />
+
+                    <div className="ml-form-embedSubmit" style={{ width: "100%", marginTop: 8 }}>
+                      <button
+                        type="submit"
+                        className="cta-primary"
+                        style={{
+                          width: "100%",
+                          padding: "15px 0",
+                          fontFamily: "'Jost', sans-serif",
+                          fontSize: 11,
+                          fontWeight: 500,
+                          letterSpacing: "0.22em",
+                          textTransform: "uppercase",
+                          background: t.charcoal,
+                          color: t.white,
+                          border: "none",
+                          cursor: "pointer",
+                          transition: "background 0.25s",
+                        }}
+                      >
+                        Subscribe ✦
+                      </button>
+                      <button
+                        disabled="disabled"
+                        style={{ display: "none" }}
+                        type="button"
+                        className="loading"
+                      >
+                        <div className="ml-form-embedSubmitLoad"></div>
+                        <span className="sr-only">Loading...</span>
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+
+              {/* Success Body */}
+              <div className="ml-form-successBody row-success" style={{ display: "none" }}>
+                <Fade>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "40px 0" }}>
+                    <div style={{ width: 64, height: 64, borderRadius: "50%", background: t.creamDark, border: `1px solid ${t.sand}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 28 }}>
+                      <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, color: t.gold }}>✦</span>
+                    </div>
+                    <EyebrowLabel>Subscribed</EyebrowLabel>
+                    <BigHeading size="clamp(28px, 4vw, 42px)" style={{ marginBottom: 16 }}>
+                      Start making your<br />
+                      <span style={{ fontStyle: "italic", fontWeight: 300 }}>bucket-list!</span>
+                    </BigHeading>
+                    <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, maxWidth: 450, margin: "0 auto" }}>
+                      You have successfully joined our subscriber list. Let's start making your travel dreams a reality.
+                    </p>
+                  </div>
+                </Fade>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
     </div>
