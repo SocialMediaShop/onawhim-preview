@@ -435,7 +435,10 @@ export default function Layout({ children }) {
             </div>
           </div>
           <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 On a Whim. IATA TIDS Accredited.</span>
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>
+              © 2026 On a Whim. IATA TIDS Accredited. · Built by{" "}
+              <a href="https://www.socialmediashopza.com" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.3s" }} onMouseEnter={e => e.currentTarget.style.color = "#FFFFFF"} onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.4)"}>Social Media Shop</a>
+            </span>
             <div style={{ display: "flex", gap: 20 }}>
                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>Privacy Policy</span>
                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>Terms & Conditions</span>
