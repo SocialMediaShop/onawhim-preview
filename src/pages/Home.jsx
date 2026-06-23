@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useSEO from "../hooks/useSEO";
 
 const t = {
   cream:     "#F5F0E8",
@@ -171,6 +172,7 @@ const HR = ({ my = 0, opacity = 0.3 }) => (
 );
 
 export default function Home() {
+  useSEO();
   const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(null);

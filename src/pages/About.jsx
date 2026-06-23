@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useSEO from "../hooks/useSEO";
 
 const t = {
   cream:     "#F5F0E8",
@@ -75,6 +76,29 @@ const Body = ({ children, style: sx = {} }) => (
 );
 
 export default function About() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About On a Whim",
+    "description": "Learn about On a Whim, bespoke safari specialists guided by people who call South Africa home.",
+    "mainEntity": {
+      "@type": "TravelAgency",
+      "name": "On a Whim",
+      "telephone": "+27621380622",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cape Town",
+        "addressCountry": "ZA"
+      }
+    }
+  };
+
+  useSEO({
+    title: "About Us",
+    description: "Learn about On a Whim, bespoke safari specialists guided by people who call South Africa home. IATA TIDS accredited travel agency.",
+    schema: aboutSchema
+  });
+
   return (
     <div style={{ background: t.cream, color: t.charcoal }}>
       <style>{`

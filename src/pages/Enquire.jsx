@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import useSEO from "../hooks/useSEO";
 
 const t = {
   cream:     "#F5F0E8",
@@ -90,6 +91,30 @@ const PKG_NAMES = {
 };
 
 export default function Enquire() {
+  const enquireSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Plan Your Custom Safari",
+    "description": "Start planning your custom African safari or tour. Get in touch with our travel experts.",
+    "mainEntity": {
+      "@type": "TravelAgency",
+      "name": "On a Whim",
+      "telephone": "+27621380622",
+      "email": "info@onawhim.co.za",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cape Town",
+        "addressCountry": "ZA"
+      }
+    }
+  };
+
+  useSEO({
+    title: "Plan Your Safari | Enquiry",
+    description: "Start planning your custom African safari or tour. Get in touch with the travel experts at On a Whim to craft your perfect itinerary.",
+    schema: enquireSchema
+  });
+
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
+import useSEO from "../hooks/useSEO";
 
 const t = {
   cream:     "#F5F0E8",
@@ -515,6 +516,69 @@ function PackageCard({ pkg, index }) {
 export default function Safari() {
   const { pathname } = useLocation();
   const isSafari = pathname === "/safari";
+
+  const safariSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Bespoke African Safaris & Packages",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Trip",
+          "name": "Victoria Falls & Hwange",
+          "description": "Begin at the edge of Victoria Falls, Zimbabwe's smoke that thunders, then fly into Hwange National Park for elephant herds and wilderness.",
+          "duration": "P8D",
+          "offers": {
+            "@type": "Offer",
+            "price": "4939",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Trip",
+          "name": "Livingstone & Chobe",
+          "description": "Experience Zambia and Botswana in one seamless journey. Victoria Falls from the Zambian bank and Chobe River boat cruises.",
+          "duration": "P8D",
+          "offers": {
+            "@type": "Offer",
+            "price": "4176",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Trip",
+          "name": "Livingstone & Lower Zambezi",
+          "description": "Follow the Zambezi River from Victoria Falls to the untouched Lower Zambezi National Park on a private concession.",
+          "duration": "P8D",
+          "offers": {
+            "@type": "Offer",
+            "price": "6185",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      }
+    ]
+  };
+
+  useSEO({
+    title: isSafari ? "Bespoke African Safaris & Packages" : "Southern Africa Bespoke Safaris & Tours",
+    description: "Explore our curated safari packages across Zimbabwe, Zambia, and Botswana. Custom itineraries for Victoria Falls, Hwange, Chobe, and Lower Zambezi.",
+    schema: safariSchema
+  });
 
   const heroImg = isSafari
     ? "/images/hero/safari-hero.jpg"
