@@ -67,8 +67,24 @@ export default function PackageInteractions({ packageName }: PackageInteractions
       const dates = (form.querySelector('#dates') as HTMLInputElement | null)?.value || '';
       const msg = (form.querySelector('#msg') as HTMLTextAreaElement | null)?.value || '';
 
+      if (!fname.trim()) {
+        if (formNote) {
+          formNote.textContent = 'Please enter your full name.';
+          formNote.style.color = '#ff6b6b';
+        }
+        return;
+      }
+      if (!email.trim() || !email.includes('@') || !email.includes('.')) {
+        if (formNote) {
+          formNote.textContent = 'Please enter a valid email address.';
+          formNote.style.color = '#ff6b6b';
+        }
+        return;
+      }
+
       if (formNote) {
         formNote.textContent = 'Sending your enquiry...';
+        formNote.style.color = 'var(--taupe)';
       }
 
       fetch("/", {

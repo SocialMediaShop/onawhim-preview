@@ -114,11 +114,12 @@ export default function Page() {
       <div className="pkg-page">
         {/* ================= NAV ================= */}
         <nav id="nav">
-          <a href="#" className="brand">On a Whim</a>
+          <a href="/" className="brand">On a Whim</a>
           <div className="nav-links" id="navlinks">
             <a href="#overview">Overview</a>
             <a href="#itinerary">Itinerary</a>
             <a href="#stay">The Lodge</a>
+            <a href="#gallery">Gallery</a>
             <a href="#faq">FAQ</a>
             <a href="#enquire" className="btn btn-light">Enquire</a>
           </div>
@@ -366,6 +367,51 @@ export default function Page() {
           <div className="wrap reveal">
             <blockquote>"Africa changes you forever, like nowhere on earth. Once you have been there, you will never be the same."</blockquote>
             <cite>Why We Do This</cite>
+          </div>
+        </section>
+
+        {/* ================= GALLERY ================= */}
+        <section className="gallery-section section" id="gallery">
+          <div className="wrap">
+            <div className="section-head reveal">
+              <span className="eyebrow">Brochure Gallery</span>
+              <h2>Visual Journey</h2>
+              <p>A glimpse of the landscapes, wildlife, and accommodation featured in this itinerary.</p>
+            </div>
+          </div>
+          <div className="gallery-scroller-container reveal">
+            <div className="gallery-scroller">
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-1-1373x1909.png" alt="Livingstone & Lower Zambezi PDF Image 1" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-2-622x895.png" alt="Livingstone & Lower Zambezi PDF Image 2" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-3-750x454.png" alt="Livingstone & Lower Zambezi PDF Image 3" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-4-812x1279.png" alt="Livingstone & Lower Zambezi PDF Image 4" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-5-744x464.png" alt="Livingstone & Lower Zambezi PDF Image 5" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-6-749x1197.png" alt="Livingstone & Lower Zambezi PDF Image 6" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-7-540x855.png" alt="Livingstone & Lower Zambezi PDF Image 7" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-8-748x497.png" alt="Livingstone & Lower Zambezi PDF Image 8" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-9-1320x1756.png" alt="Livingstone & Lower Zambezi PDF Image 9" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/livingstone-lower-zambezi/assets/img/img-10-716x1299.png" alt="Livingstone & Lower Zambezi PDF Image 10" loading="lazy" />
+              </div>
+            </div>
           </div>
         </section>
 

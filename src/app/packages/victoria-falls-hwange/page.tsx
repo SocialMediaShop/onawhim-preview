@@ -115,11 +115,12 @@ export default function Page() {
       <div className="pkg-page">
         {/* ================= NAV ================= */}
         <nav id="nav">
-          <a href="#" className="brand">On a Whim</a>
+          <a href="/" className="brand">On a Whim</a>
           <div className="nav-links" id="navlinks">
             <a href="#overview">Overview</a>
             <a href="#itinerary">Itinerary</a>
             <a href="#stay">The Camp</a>
+            <a href="#gallery">Gallery</a>
             <a href="#faq">FAQ</a>
             <a href="#enquire" className="btn btn-light">Enquire</a>
           </div>
@@ -367,6 +368,57 @@ export default function Page() {
           <div className="wrap reveal">
             <blockquote>"Africa changes you forever, like nowhere on earth. Once you have been there, you will never be the same."</blockquote>
             <cite>Why We Do This</cite>
+          </div>
+        </section>
+
+        {/* ================= GALLERY ================= */}
+        <section className="gallery-section section" id="gallery">
+          <div className="wrap">
+            <div className="section-head reveal">
+              <span className="eyebrow">Brochure Gallery</span>
+              <h2>Visual Journey</h2>
+              <p>A glimpse of the landscapes, wildlife, and accommodation featured in this itinerary.</p>
+            </div>
+          </div>
+          <div className="gallery-scroller-container reveal">
+            <div className="gallery-scroller">
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-1-1300x1950.png" alt="Victoria Falls & Hwange PDF Image 1" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-2-417x591.png" alt="Victoria Falls & Hwange PDF Image 2" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-3-1351x901.png" alt="Victoria Falls & Hwange PDF Image 3" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-4-1355x904.png" alt="Victoria Falls & Hwange PDF Image 4" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-5-995x664.png" alt="Victoria Falls & Hwange PDF Image 5" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-6-667x500.png" alt="Victoria Falls & Hwange PDF Image 6" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-7-1360x907.png" alt="Victoria Falls & Hwange PDF Image 7" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-8-744x496.png" alt="Victoria Falls & Hwange PDF Image 8" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-9-1750x1167.png" alt="Victoria Falls & Hwange PDF Image 9" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-10-1200x1126.png" alt="Victoria Falls & Hwange PDF Image 10" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-11-1198x899.png" alt="Victoria Falls & Hwange PDF Image 11" loading="lazy" />
+              </div>
+              <div className="gallery-item">
+                <img src="/packages/victoria-falls-hwange/assets/img/img-12-1979x1320.png" alt="Victoria Falls & Hwange PDF Image 12" loading="lazy" />
+              </div>
+            </div>
           </div>
         </section>
 
