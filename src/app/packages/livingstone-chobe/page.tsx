@@ -405,9 +405,7 @@ export default function Page() {
               <div className="gallery-item">
                 <img src="/packages/livingstone-chobe/assets/img/img-8-1301x1686.png" alt="Livingstone & Chobe PDF Image 8" loading="lazy" />
               </div>
-              <div className="gallery-item">
-                <img src="/packages/livingstone-chobe/assets/img/img-9-581x425.png" alt="Livingstone & Chobe PDF Image 9" loading="lazy" />
-              </div>
+
               <div className="gallery-item">
                 <img src="/packages/livingstone-chobe/assets/img/img-10-722x1292.png" alt="Livingstone & Chobe PDF Image 10" loading="lazy" />
               </div>
