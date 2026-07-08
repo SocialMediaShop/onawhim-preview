@@ -496,7 +496,7 @@ export default function Page() {
                 <div className="field-row">
                   <div>
                     <label htmlFor="fname">Full name</label>
-                    <input id="fname" name="fname" type="text" placeholder="Your name" />
+                    <input id="fname" name="name" type="text" placeholder="Your name" />
                   </div>
                   <div>
                     <label htmlFor="country">Country of residence</label>
@@ -510,7 +510,7 @@ export default function Page() {
                   </div>
                   <div>
                     <label htmlFor="guests">Number of guests</label>
-                    <select id="guests" name="guests">
+                    <select id="guests" name="groupSize">
                       <option>1–2</option>
                       <option>3–4</option>
                       <option>5–6</option>
@@ -520,11 +520,11 @@ export default function Page() {
                 </div>
                 <div>
                   <label htmlFor="dates">Approximate travel dates</label>
-                  <input id="dates" name="dates" type="text" placeholder="e.g. July 2026, flexible" />
+                  <input id="dates" name="travelMonth" type="text" placeholder="e.g. July 2026, flexible" />
                 </div>
                 <div>
                   <label htmlFor="msg">Anything you'd like us to know</label>
-                  <textarea id="msg" name="msg" rows={3} placeholder="Special occasions, interests, must-sees…"></textarea>
+                  <textarea id="msg" name="message" rows={3} placeholder="Special occasions, interests, must-sees…"></textarea>
                 </div>
                 <button type="submit" className="btn btn-solid" style={{ justifyContent: 'center', background: 'var(--ochre-bright)', color: 'var(--ink)' }}>Confirm &amp; Start Packing</button>
                 <p className="form-note" id="formNote">This demo opens your email app addressed to info@onawhim.co.za. On the live site this posts to your form handler.</p>

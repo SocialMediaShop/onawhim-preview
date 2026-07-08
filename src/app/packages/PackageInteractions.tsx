@@ -92,12 +92,12 @@ export default function PackageInteractions({ packageName }: PackageInteractions
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           "form-name": "enquiry",
-          fname,
+          name: fname,
           country,
           email,
-          guests,
-          dates,
-          msg: `Selected Package: ${packageName}\n\n${msg}`
+          groupSize: guests,
+          travelMonth: dates,
+          message: `Selected Package: ${packageName}\n\n${msg}`
         }).toString()
       })
       .then(() => {
