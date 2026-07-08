@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const t = {
   cream:     "#F5F0E8",
@@ -33,7 +36,7 @@ const SocialIcons = ({ size = 16, gap = 16 }) => (
 
 const EyebrowLabel = ({ children, light }) => (
   <p style={{
-    fontFamily: "'Jost', sans-serif", fontSize: 10, fontWeight: 500,
+    fontFamily: "var(--body)", fontSize: 10, fontWeight: 500,
     letterSpacing: "0.28em", textTransform: "uppercase",
     color: light ? "rgba(255,255,255,0.45)" : t.sandDark,
     marginBottom: 14,
@@ -42,7 +45,7 @@ const EyebrowLabel = ({ children, light }) => (
 
 const BigHeading = ({ children, light, size = "clamp(36px,5vw,64px)", style: sx = {} }) => (
   <h2 style={{
-    fontFamily: "'Cormorant Garamond', Georgia, serif",
+    fontFamily: "var(--display)",
     fontSize: size, fontWeight: 600, letterSpacing: "0.06em",
     textTransform: "uppercase", lineHeight: 1.0,
     color: light ? t.white : t.charcoal,
@@ -78,7 +81,7 @@ function Fade({ children, delay = 0, style: sx = {} }) {
 export default function Layout({ children }) {
   const [scrollY, setScrollY] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -88,7 +91,7 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     setMobileOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   useEffect(() => {
     // Define the success callback globally
@@ -117,14 +120,29 @@ export default function Layout({ children }) {
     };
   }, []);
 
-  const isHome = location.pathname === "/";
+  const isHome = pathname === "/";
   const navSolid = scrollY > 80 || !isHome;
 
+  const isPackagePage = pathname && pathname.startsWith("/packages/");
+
+  if (isPackagePage) {
+    return (
+      <div style={{ fontFamily: "var(--body)", background: t.cream, color: t.charcoal }}>
+        {/* Global fine grain overlay */}
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 999, opacity: 0.02, pointerEvents: "none",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        }} />
+        <main>{children}</main>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ fontFamily: "'Jost', system-ui, sans-serif", background: t.cream, color: t.charcoal }}>
+    <div style={{ fontFamily: "var(--body)", background: t.cream, color: t.charcoal }}>
       <style>{`
         .nav-link {
-          font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+          font-family: var(--body); font-size: 11px; font-weight: 500;
           letter-spacing: 0.22em; text-transform: uppercase;
           text-decoration: none; cursor: pointer; transition: all 0.3s ease; opacity: 0.8;
         }
@@ -133,7 +151,7 @@ export default function Layout({ children }) {
         .nav-dark  { color: ${t.charcoal}; }
 
         .cta-nav {
-          display: inline-block; font-family: 'Jost', sans-serif;
+          display: inline-block; font-family: var(--body);
           font-size: 10px; font-weight: 600; letter-spacing: 0.24em;
           text-transform: uppercase; padding: 12px 28px;
           background: ${t.charcoal}; color: ${t.white};
@@ -189,14 +207,14 @@ export default function Layout({ children }) {
         display: "flex", alignItems: "center", justifyContent: "space-between",
         transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
       }} className={navSolid ? "glass-nav" : ""}>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link href="/" style={{ textDecoration: "none" }}>
           <div style={{
-            fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600,
+            fontFamily: "var(--display)", fontSize: 20, fontWeight: 600,
             letterSpacing: "0.2em", textTransform: "uppercase", lineHeight: 1.1,
             color: navSolid ? t.charcoal : t.white, transition: "color 0.4s",
           }}>On a Whim</div>
           <div style={{
-            fontFamily: "'Jost', sans-serif", fontSize: 8.5, letterSpacing: "0.32em",
+            fontFamily: "var(--body)", fontSize: 8.5, letterSpacing: "0.32em",
             textTransform: "uppercase",
             color: navSolid ? t.sandDark : "rgba(255,255,255,0.5)",
             transition: "color 0.4s",
@@ -210,7 +228,7 @@ export default function Layout({ children }) {
             { l: "About", p: "/about" },
             { l: "Contact", p: "/enquire" }
           ].map(item => (
-            <Link key={item.l} to={item.p} className={`nav-link ${navSolid ? "nav-dark" : "nav-light"}`}>
+            <Link key={item.l} href={item.p} className={`nav-link ${navSolid ? "nav-dark" : "nav-light"}`}>
               {item.l}
             </Link>
           ))}
@@ -218,7 +236,7 @@ export default function Layout({ children }) {
             <div className={navSolid ? "nav-dark" : "nav-light"} style={{ display: "flex" }}>
               <SocialIcons size={15} gap={16} />
             </div>
-            <Link to="/enquire" className="cta-nav">Start Planning</Link>
+            <Link href="/enquire" className="cta-nav">Start Planning</Link>
           </div>
         </div>
 
@@ -243,13 +261,13 @@ export default function Layout({ children }) {
           { l: "About", p: "/about" },
           { l: "Contact", p: "/enquire" }
         ].map(item => (
-          <Link key={item.l} to={item.p} style={{
-            fontFamily: "'Cormorant Garamond', serif", fontSize: 32, fontWeight: 400,
+          <Link key={item.l} href={item.p} style={{
+            fontFamily: "var(--display)", fontSize: 32, fontWeight: 400,
             letterSpacing: "0.1em", textTransform: "uppercase",
             color: t.white, textDecoration: "none", cursor: "pointer",
           }}>{item.l}</Link>
         ))}
-        <Link to="/enquire" className="cta-nav" style={{ padding: "14px 40px", fontSize: 12, marginBottom: 12 }}>Start Planning</Link>
+        <Link href="/enquire" className="cta-nav" style={{ padding: "14px 40px", fontSize: 12, marginBottom: 12 }}>Start Planning</Link>
         <div style={{ color: t.white }}>
           <SocialIcons size={20} gap={24} />
         </div>
@@ -303,7 +321,7 @@ export default function Layout({ children }) {
                     Adventure is calling.<br />
                     <span style={{ fontStyle: "italic", fontWeight: 300 }}>Will you answer it?</span>
                   </BigHeading>
-                  <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, marginBottom: 36 }}>
+                  <p style={{ fontFamily: "var(--body)", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, marginBottom: 36 }}>
                     Sign up for travel inspiration, special offers and giveaways!
                   </p>
                 </Fade>
@@ -326,7 +344,7 @@ export default function Layout({ children }) {
                             padding: "14px 20px",
                             background: t.cream,
                             border: `1px solid ${t.sand}`,
-                            fontFamily: "'Jost', sans-serif",
+                            fontFamily: "var(--body)",
                             fontSize: 14,
                             fontWeight: 300,
                             color: t.charcoal,
@@ -351,7 +369,7 @@ export default function Layout({ children }) {
                         style={{
                           width: "100%",
                           padding: "15px 0",
-                          fontFamily: "'Jost', sans-serif",
+                          fontFamily: "var(--body)",
                           fontSize: 11,
                           fontWeight: 500,
                           letterSpacing: "0.22em",
@@ -385,14 +403,14 @@ export default function Layout({ children }) {
                 <Fade>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "40px 0" }}>
                     <div style={{ width: 64, height: 64, borderRadius: "50%", background: t.creamDark, border: `1px solid ${t.sand}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 28 }}>
-                      <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, color: t.gold }}>✦</span>
+                      <span style={{ fontFamily: "var(--display)", fontSize: 28, color: t.gold }}>✦</span>
                     </div>
                     <EyebrowLabel>Subscribed</EyebrowLabel>
                     <BigHeading size="clamp(28px, 4vw, 42px)" style={{ marginBottom: 16 }}>
                       Start making your<br />
                       <span style={{ fontStyle: "italic", fontWeight: 300 }}>bucket-list!</span>
                     </BigHeading>
-                    <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, maxWidth: 450, margin: "0 auto" }}>
+                    <p style={{ fontFamily: "var(--body)", fontSize: 15, fontWeight: 300, color: t.muted, lineHeight: 1.8, maxWidth: 450, margin: "0 auto" }}>
                       You have successfully joined our subscriber list. Let's start making your travel dreams a reality.
                     </p>
                   </div>
@@ -409,7 +427,7 @@ export default function Layout({ children }) {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="footer-grid">
             <div className="footer-section">
-               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, color: t.white, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>On a Whim</div>
+               <div style={{ fontFamily: "var(--display)", fontSize: 24, color: t.white, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>On a Whim</div>
                <p className="footer-desc" style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, maxWidth: 280 }}>
                  Bespoke journeys across South Africa and Southern Africa. Travel with people who know this land deeply.
                </p>
@@ -418,7 +436,7 @@ export default function Layout({ children }) {
                <div style={{ fontSize: 10, color: t.sandDark, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 20 }}>Quick Links</div>
                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                  {["Tours", "Destinations", "About", "Enquire"].map(l => (
-                   <Link key={l} to={`/${l.toLowerCase()}`} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{l}</Link>
+                   <Link key={l} href={`/${l.toLowerCase()}`} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{l}</Link>
                  ))}
                </div>
             </div>
