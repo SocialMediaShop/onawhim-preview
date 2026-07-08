@@ -481,55 +481,17 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ================= ENQUIRY ================= */}
-        <section className="enquire section" id="enquire">
-          <div className="wrap">
-            <div className="reveal">
-              <span className="eyebrow">Start The Conversation</span>
-              <h2>Enquire about this package</h2>
-              <p>A few details is all we need. We'll come back within 24 hours with a personalised proposal — no obligations.</p>
-              <div className="assurance">A dedicated travel expert will respond to your enquiry personally — not an automated system. Enquiring costs nothing.</div>
-            </div>
-            <div className="reveal">
-              <form id="enquiryForm" name="enquiry" method="POST" data-netlify="true" noValidate>
-                <input type="hidden" name="form-name" value="enquiry" />
-                <div className="field-row">
-                  <div>
-                    <label htmlFor="fname">Full name</label>
-                    <input id="fname" name="name" type="text" placeholder="Your name" />
-                  </div>
-                  <div>
-                    <label htmlFor="country">Country of residence</label>
-                    <input id="country" name="country" type="text" placeholder="e.g. United States" />
-                  </div>
-                </div>
-                <div className="field-row">
-                  <div>
-                    <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="you@email.com" />
-                  </div>
-                  <div>
-                    <label htmlFor="guests">Number of guests</label>
-                    <select id="guests" name="groupSize">
-                      <option>1–2</option>
-                      <option>3–4</option>
-                      <option>5–6</option>
-                      <option>7–8</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="dates">Approximate travel dates</label>
-                  <input id="dates" name="travelMonth" type="text" placeholder="e.g. July 2026, flexible" />
-                </div>
-                <div>
-                  <label htmlFor="msg">Anything you'd like us to know</label>
-                  <textarea id="msg" name="message" rows={3} placeholder="Special occasions, interests, must-sees…"></textarea>
-                </div>
-                <button type="submit" className="btn btn-solid" style={{ justifyContent: 'center', background: 'var(--ochre-bright)', color: 'var(--ink)' }}>Confirm &amp; Start Packing</button>
-                <p className="form-note" id="formNote">By submitting this form, your enquiry will be sent directly to our travel experts.</p>
-              </form>
-            </div>
+        {/* ================= ENQUIRY CTA ================= */}
+        <section className="enquire section" id="enquire" style={{ textAlign: 'center', background: 'var(--night)', color: 'var(--sand)' }}>
+          <div className="wrap reveal" style={{ maxWidth: '720px', margin: '0 auto', padding: '60px 22px' }}>
+            <span className="eyebrow">Start The Conversation</span>
+            <h2 style={{ color: 'var(--paper)', fontSize: 'clamp(34px, 5vw, 52px)', margin: '18px 0 20px' }}>Let's Plan Your Journey</h2>
+            <p style={{ color: 'var(--khaki)', fontSize: '18px', lineHeight: '1.7', marginBottom: '32px' }}>
+              Every On A Whim safari is custom-built around your dates, pace, and travel style. Click below to fill out our simple planning questionnaire and receive a personalized itinerary.
+            </p>
+            <a href="/enquire?pkg=livingstone-chobe" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '14px', padding: '18px 40px', fontWeight: 600 }}>
+              Start Planning
+            </a>
           </div>
         </section>
 
