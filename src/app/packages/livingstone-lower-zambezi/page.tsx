@@ -529,7 +529,7 @@ export default function Page() {
                   <textarea id="msg" name="message" rows={3} placeholder="Special occasions, interests, must-sees…"></textarea>
                 </div>
                 <button type="submit" className="btn btn-solid" style={{ justifyContent: 'center', background: 'var(--ochre-bright)', color: 'var(--ink)' }}>Confirm &amp; Start Packing</button>
-                <p className="form-note" id="formNote">This demo opens your email app addressed to info@onawhim.co.za. On the live site this posts to your form handler.</p>
+                <p className="form-note" id="formNote">By submitting this form, your enquiry will be sent directly to our travel experts.</p>
               </form>
             </div>
           </div>
