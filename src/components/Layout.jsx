@@ -435,7 +435,7 @@ export default function Layout({ children }) {
             <div className="footer-section">
                <div style={{ fontSize: 10, color: t.sandDark, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 20 }}>Quick Links</div>
                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                 {["Tours", "Destinations", "About", "Enquire"].map(l => (
+                 {["Tours", "About", "Enquire"].map(l => (
                    <Link key={l} href={`/${l.toLowerCase()}`} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13 }}>{l}</Link>
                  ))}
                </div>

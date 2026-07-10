@@ -4,7 +4,7 @@ import '../packages.css';
 
 export const metadata: Metadata = {
   title: 'Livingstone & Chobe Safari Package | 8 Days, Zambia & Botswana | On A Whim',
-  description: 'An 8-day Livingstone & Chobe safari package for up to 8 guests. Experience Victoria Falls, walk with white rhinos in Mosi-oa-Tunya, and enjoy Chobe River boat cruises and boutique tented lodging. Bespoke, expert-guided, IATA TIDS accredited.',
+  description: '8-day Livingstone & Chobe safari for up to 8 guests. See Victoria Falls, walk with white rhinos, and enjoy Chobe River boat cruises. Expert-guided & bespoke.',
   alternates: {
     canonical: 'https://onawhim.co.za/packages/livingstone-chobe',
   },

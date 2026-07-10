@@ -4,7 +4,7 @@ import '../packages.css';
 
 export const metadata: Metadata = {
   title: 'Livingstone & Lower Zambezi Safari Package | 8 Days, Zambia | On A Whim',
-  description: 'An 8-day Livingstone & Lower Zambezi safari package for up to 8 guests. See Victoria Falls, walk with white rhinos, and fly east into the Lower Zambezi for game drives and luxury lodging. Bespoke, expert-guided, IATA TIDS accredited.',
+  description: '8-day Livingstone & Lower Zambezi safari for up to 8 guests. See Victoria Falls, walk with rhinos, and fly to Lower Zambezi for luxury safaris. Expert-guided.',
   alternates: {
     canonical: 'https://onawhim.co.za/packages/livingstone-lower-zambezi',
   },

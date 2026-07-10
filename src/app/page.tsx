@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://onawhim.co.za/',
+    url: 'https://onawhim.co.za',
     title: 'On a Whim | Bespoke African Safaris & Tours',
     description: 'Expert-guided, personalized African safaris and tours across Southern Africa. Authentically crafted journeys.',
     images: [

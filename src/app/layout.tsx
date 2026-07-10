@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   title: 'On a Whim | Bespoke African Safaris & Tours',
   description: 'On a Whim offers bespoke African safaris and tours across South Africa, Zimbabwe, Zambia, and Botswana. Expert-guided, personalized journeys tailored to you.',
   alternates: {
-    canonical: 'https://onawhim.co.za/',
+    canonical: 'https://onawhim.co.za',
   },
   openGraph: {
     type: 'website',
-    url: 'https://onawhim.co.za/',
+    url: 'https://onawhim.co.za',
     title: 'On a Whim | Bespoke African Safaris & Tours',
     description: 'Expert-guided, personalized African safaris and tours across Southern Africa. Authentically crafted journeys.',
     images: [

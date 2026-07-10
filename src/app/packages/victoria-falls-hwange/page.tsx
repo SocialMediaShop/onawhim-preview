@@ -4,7 +4,7 @@ import '../packages.css';
 
 export const metadata: Metadata = {
   title: 'Victoria Falls & Hwange Safari Package | 8 Days, Zimbabwe | On A Whim',
-  description: 'An 8-day Victoria Falls & Hwange safari package for up to 8 guests. Begin at the smoke that thunders, then fly into Hwange for Iganyana Tented Camp, elephant herds and private-concession game drives. Bespoke, expert-guided, IATA TIDS accredited.',
+  description: '8-day Victoria Falls & Hwange safari for up to 8 guests. Experience the Falls, fly to Hwange for private game drives & tented camp. Expert-guided & bespoke.',
   alternates: {
     canonical: 'https://onawhim.co.za/packages/victoria-falls-hwange',
   },

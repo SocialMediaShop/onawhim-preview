@@ -25,7 +25,7 @@ const HERO_IMAGES = [
   {
     url: "/images/hero/hero-one.jpg",
     credit: "On a Whim",
-    headline: ["Authentic", "African Experiences"],
+    headline: ["Authentic African", "Safaris & Tours"],
     sub: "Bespoke journeys across South Africa and Southern Africa — guided by people who call it home.",
   },
   {
@@ -434,25 +434,29 @@ export default function Home() {
           <div style={{ maxWidth: 700 }} key={slide}>
             <EyebrowLabel light>Cape Town · Garden Route · Southern Africa</EyebrowLabel>
 
-            <h1 className="hero-text d1" style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(50px, 7.5vw, 96px)",
-              fontWeight: 600, letterSpacing: "0.06em",
-              textTransform: "uppercase", lineHeight: 0.96,
-              color: t.white, marginBottom: 4,
-            }}>
-              {HERO_IMAGES[slide].headline[0]}
+             <h1 style={{ margin: 0, padding: 0 }}>
+              <span className="hero-text d1" style={{
+                display: "block",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: "clamp(50px, 7.5vw, 96px)",
+                fontWeight: 600, letterSpacing: "0.06em",
+                textTransform: "uppercase", lineHeight: 0.96,
+                color: t.white, marginBottom: 4,
+              }}>
+                {HERO_IMAGES[slide].headline[0]}
+              </span>
+              <span className="hero-text d2" style={{
+                display: "block",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: "clamp(50px, 7.5vw, 96px)",
+                fontWeight: 300, fontStyle: "italic",
+                letterSpacing: "0.04em", lineHeight: 1.05,
+                color: "rgba(255,255,255,0.88)",
+                marginBottom: 30,
+              }}>
+                {HERO_IMAGES[slide].headline[1]}
+              </span>
             </h1>
-            <div className="hero-text d2" style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(50px, 7.5vw, 96px)",
-              fontWeight: 300, fontStyle: "italic",
-              letterSpacing: "0.04em", lineHeight: 1.05,
-              color: "rgba(255,255,255,0.88)",
-              marginBottom: 30,
-            }}>
-              {HERO_IMAGES[slide].headline[1]}
-            </div>
 
             <p className="hero-text d3" style={{
               fontFamily: "'Jost', sans-serif", fontSize: 15, fontWeight: 300,
@@ -546,9 +550,10 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 30 }}>
             {NOW_BOOKING_PACKAGES.map((pkg, i) => (
               <Fade key={i} delay={i * 0.1}>
-                <div 
+                <Link 
+                  href={pkg.pagePath || `/safari#${pkg.id}`}
                   className="nb-card" 
-                  onClick={() => router.push(pkg.pagePath || `/safari#${pkg.id}`)}
+                  style={{ textDecoration: 'none' }}
                 >
                   <div className="nb-img-container">
                     <span className="nb-badge">{pkg.tag}</span>
@@ -605,7 +610,7 @@ export default function Home() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </Fade>
             ))}
           </div>
