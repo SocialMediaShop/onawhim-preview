@@ -122,7 +122,7 @@ export default function Page() {
             <a href="#stay">The Camp</a>
             <a href="#gallery">Gallery</a>
             <a href="#faq">FAQ</a>
-            <a href="#enquire" className="btn btn-light">Enquire</a>
+            <a href="/enquire?pkg=vic-falls-hwange" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)' }}>Start Planning</a>
           </div>
           <button className="nav-toggle" id="navtoggle" aria-label="Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -168,6 +168,9 @@ export default function Page() {
                   <div className="k">From</div>
                   <div className="v">$4,939 <small>pp / Shoulder Season</small></div>
                 </div>
+              </div>
+              <div style={{ marginTop: '30px' }}>
+                <a href="/enquire?pkg=vic-falls-hwange" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Start Planning Your Safari</a>
               </div>
             </div>
           </div>
@@ -309,6 +312,9 @@ export default function Page() {
                 <div className="stay">Included · Airport transfers &amp; charter flights throughout</div>
               </div>
             </div>
+            <div className="reveal" style={{ textAlign: 'center', marginTop: '48px' }}>
+              <a href="/enquire?pkg=vic-falls-hwange" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Request Pricing &amp; Dates</a>
+            </div>
           </div>
         </section>
 
@@ -336,6 +342,7 @@ export default function Page() {
                 <li>Community &amp; Bicycle Tour — Lesoma Valley</li>
                 <li>Bushtracks Express Dinner Train</li>
               </ul>
+              <a href="/enquire?pkg=vic-falls-hwange" style={{ display: 'block', marginTop: '20px', textAlign: 'center', color: 'var(--ochre-bright)', fontWeight: 500, fontSize: '13px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Customise this itinerary &rarr;</a>
             </div>
           </div>
         </section>
@@ -358,7 +365,7 @@ export default function Page() {
               <h2>Iganyana Tented Camp</h2>
               <p>An intimate tented camp set on a private concession in Hwange National Park — canvas suites, open-sided game vehicles, and a waterhole that brings the wild to your doorstep. Exactly the kind of small, characterful place we handpick rather than default to.</p>
               <p>Mornings begin with the sound of the bush; evenings end around the fire under one of Africa's clearest skies. Twice-daily game drives and guided walks run straight from camp.</p>
-              <a href="#enquire" className="btn btn-light" style={{ marginTop: '12px' }}>Enquire about this camp</a>
+              <a href="/enquire?pkg=vic-falls-hwange" className="btn btn-solid" style={{ marginTop: '12px', background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Plan Your Stay</a>
             </div>
           </div>
         </section>
@@ -503,7 +510,7 @@ export default function Page() {
               Every On A Whim safari is custom-built around your dates, pace, and travel style. Click below to fill out our simple planning questionnaire and receive a personalized itinerary.
             </p>
             <a href="/enquire?pkg=vic-falls-hwange" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '14px', padding: '18px 40px', fontWeight: 600 }}>
-              Start Planning
+              Check Availability &amp; Get Quote
             </a>
           </div>
         </section>

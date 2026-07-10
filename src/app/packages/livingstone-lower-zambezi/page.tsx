@@ -121,7 +121,7 @@ export default function Page() {
             <a href="#stay">The Lodge</a>
             <a href="#gallery">Gallery</a>
             <a href="#faq">FAQ</a>
-            <a href="#enquire" className="btn btn-light">Enquire</a>
+            <a href="/enquire?pkg=livingstone-lower-zambezi" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)' }}>Start Planning</a>
           </div>
           <button className="nav-toggle" id="navtoggle" aria-label="Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -167,6 +167,9 @@ export default function Page() {
                   <div className="k">From</div>
                   <div className="v">$6,185 <small>pp / Shoulder Season</small></div>
                 </div>
+              </div>
+              <div style={{ marginTop: '30px' }}>
+                <a href="/enquire?pkg=livingstone-lower-zambezi" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Start Planning Your Safari</a>
               </div>
             </div>
           </div>
@@ -308,6 +311,9 @@ export default function Page() {
                 <div className="stay">Included · Charter flight to Lusaka Airport</div>
               </div>
             </div>
+            <div className="reveal" style={{ textAlign: 'center', marginTop: '48px' }}>
+              <a href="/enquire?pkg=livingstone-lower-zambezi" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Request Pricing &amp; Dates</a>
+            </div>
           </div>
         </section>
 
@@ -335,6 +341,7 @@ export default function Page() {
                 <li>Zambezi River boat cruises</li>
                 <li>Lower Zambezi walking safaris</li>
               </ul>
+              <a href="/enquire?pkg=livingstone-lower-zambezi" style={{ display: 'block', marginTop: '20px', textAlign: 'center', color: 'var(--ochre-bright)', fontWeight: 500, fontSize: '13px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Customise this itinerary &rarr;</a>
             </div>
           </div>
         </section>
@@ -357,7 +364,7 @@ export default function Page() {
               <h2>Royal Zambezi Lodge</h2>
               <p>A private concession on the banks of the Zambezi, with the escarpment rising behind camp and the game moving through on its own terms. Generous tented suites, exceptional food, and guiding of the highest order — in one of Africa's least-visited national parks.</p>
               <p>Watch wildlife drink from the river directly from your private wooden deck, and listen to the sounds of the African night under canvas luxury.</p>
-              <a href="#enquire" className="btn btn-light" style={{ marginTop: '12px' }}>Enquire about this lodge</a>
+              <a href="/enquire?pkg=livingstone-lower-zambezi" className="btn btn-solid" style={{ marginTop: '12px', background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '13px', fontWeight: 600 }}>Plan Your Stay</a>
             </div>
           </div>
         </section>
@@ -492,7 +499,7 @@ export default function Page() {
               Every On A Whim safari is custom-built around your dates, pace, and travel style. Click below to fill out our simple planning questionnaire and receive a personalized itinerary.
             </p>
             <a href="/enquire?pkg=livingstone-lower-zambezi" className="btn btn-solid" style={{ background: 'var(--ochre-bright)', color: 'var(--ink)', fontSize: '14px', padding: '18px 40px', fontWeight: 600 }}>
-              Start Planning
+              Check Availability &amp; Get Quote
             </a>
           </div>
         </section>
