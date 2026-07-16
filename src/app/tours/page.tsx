@@ -30,7 +30,7 @@ const toursSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "African Safaris & Tours",
-  "description": "Exclusive, handpicked tour packages across Zimbabwe, Zambia, and Botswana.",
+  "description": "Exclusive, handpicked tour packages across South Africa, Zimbabwe, Zambia, and Botswana.",
   "url": "https://onawhim.co.za/tours",
   "mainEntity": {
     "@type": "ItemList",
@@ -49,6 +49,11 @@ const toursSchema = {
         "@type": "ListItem",
         "position": 3,
         "url": "https://onawhim.co.za/packages/livingstone-lower-zambezi"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://onawhim.co.za/tours/giants-of-the-garden-route"
       }
     ]
   }
@@ -103,6 +108,17 @@ const TOURS = [
     spots: "Selling Fast",
     pagePath: "/packages/livingstone-lower-zambezi",
     description: "Follow the Zambezi from the thunder of Victoria Falls to the ultimate wilderness of the Lower Zambezi National Park."
+  },
+  {
+    id: "giants-garden-route",
+    name: "Giants of the Garden Route",
+    dates: "3 Aug · 24 Aug · 7 Sep · 21 Sep",
+    price: "Rates on Enquiry",
+    image: "/images/giants/giants-garden-route-whale-knysna.jpg",
+    tag: "South Africa",
+    spots: "Booking Now",
+    pagePath: "/tours/giants-of-the-garden-route",
+    description: "Whales breaching off the Knysna Heads, walking with forest elephants, and standing under an 800-year-old ancient giant."
   }
 ];
 
