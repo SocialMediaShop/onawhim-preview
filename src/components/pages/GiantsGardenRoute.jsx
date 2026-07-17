@@ -154,7 +154,7 @@ function StickyMobileCTA() {
         Aug &amp; Sep 2026 · 16 seats per departure
       </span>
       <Link
-        href="/enquire?src=giants-garden-route"
+        href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
         id="sticky-mobile-cta"
         style={{
           fontFamily: "'Jost', sans-serif", fontSize: 10, fontWeight: 500,
@@ -354,7 +354,7 @@ export default function GiantsGardenRoute() {
               {/* CTA #1 — hero button */}
               <div className="hi d4" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }}>
                 <Link
-                  href="/enquire?src=giants-garden-route"
+                  href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                   className="cta-primary"
                   id="cta-hero"
                 >
@@ -393,7 +393,7 @@ export default function GiantsGardenRoute() {
             {["3 Aug", "24 Aug", "7 Sep", "21 Sep"].map((d) => (
               <Link
                 key={d}
-                href="/enquire?src=giants-garden-route"
+                href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                 className="dep-pill"
               >
                 {d}
@@ -592,7 +592,7 @@ export default function GiantsGardenRoute() {
             <Fade delay={0.2}>
               <div style={{ marginTop: 40, textAlign: "center" }}>
                 <Link
-                  href="/enquire?src=giants-garden-route"
+                  href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                   id="cta-giants"
                   style={{
                     display: "inline-block",
@@ -721,7 +721,7 @@ export default function GiantsGardenRoute() {
 
               {/* CTA #4 — after itinerary */}
               <Link
-                href="/enquire?src=giants-garden-route"
+                href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                 className="cta-primary"
                 id="cta-itinerary"
               >
@@ -804,7 +804,7 @@ export default function GiantsGardenRoute() {
                   {/* CTA #5 — solo travellers block */}
                   <div>
                     <Link
-                      href="/enquire?src=giants-garden-route"
+                      href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                       className="cta-ghost-dark"
                       id="cta-solo"
                     >
@@ -923,18 +923,20 @@ export default function GiantsGardenRoute() {
                     {/* Departure pills — green accent */}
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
                       {["3 Aug", "24 Aug", "7 Sep", "21 Sep"].map((d) => (
-                        <span key={d} style={{
-                          fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 400,
-                          padding: "5px 12px",
-                          border: `1px solid ${t.green}`,
-                          color: t.green, letterSpacing: "0.05em",
-                        }}>{d}</span>
+                        <Link
+                          key={d}
+                          href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
+                          className="dep-pill"
+                          style={{ padding: "5px 12px" }}
+                        >
+                          {d}
+                        </Link>
                       ))}
                     </div>
 
                     {/* CTA #6 — pricing/offer box */}
                     <Link
-                      href="/enquire?src=giants-garden-route"
+                      href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                       className="cta-primary"
                       id="cta-offer"
                       style={{ alignSelf: "flex-start" }}
@@ -1094,7 +1096,7 @@ export default function GiantsGardenRoute() {
 
                 {/* CTA #7 — final CTA section */}
                 <Link
-                  href="/enquire?src=giants-garden-route"
+                  href="https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7"
                   className="cta-primary"
                   id="cta-final"
                 >

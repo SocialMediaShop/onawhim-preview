@@ -98,7 +98,7 @@ const touristTripSchema = {
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
-        url: 'https://onawhim.co.za/enquire?src=giants-garden-route',
+        url: 'https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7',
       },
     },
     {
@@ -126,7 +126,7 @@ const touristTripSchema = {
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
-        url: 'https://onawhim.co.za/enquire?src=giants-garden-route',
+        url: 'https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7',
       },
     },
     {
@@ -154,7 +154,7 @@ const touristTripSchema = {
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
-        url: 'https://onawhim.co.za/enquire?src=giants-garden-route',
+        url: 'https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7',
       },
     },
     {
@@ -182,7 +182,7 @@ const touristTripSchema = {
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
-        url: 'https://onawhim.co.za/enquire?src=giants-garden-route',
+        url: 'https://onawhimtravel.waybird.com/trip/d2fa427c-2b54-4fe7-bf1b-3c18a9d774c7',
       },
     },
   ],
